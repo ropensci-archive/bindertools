@@ -19,6 +19,11 @@ library(ggplot2)
 ggplot(mtcars, aes(mpg, disp)) + geom_point()
 ```
 
+```{r}
+checkmate::check_character("a")
+```
+
+
 ## Including Plots
 
 You can also embed plots, for example:
