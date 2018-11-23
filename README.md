@@ -1,16 +1,20 @@
-# toy_project
+# bindertools
 
-The goal of toy_project is to ...
+The goal of bindertools is to make creating a reproducible research project easier. 
 
+## Installation
 
-# Step 1. Copy dockerfile
+You can install it with:
 
-# Step 2. Push to github repo in root directory.
+``` r
+devtools::install_github("ropenscilabs/bindertools")
+```
 
-# Step 2b. manually create install.R file to include dependencies.
+## Example
 
-# Step 3. Go to mybinder.org
+This is a basic example which shows you how to solve a common problem:
 
-# Step 4: Get the link
+``` r
+## basic example code
+```
 
-To make this simpler, 

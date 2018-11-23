@@ -1,0 +1,15 @@
+Package: bindertools
+Title: Create files for binder and then launch binder with mybinder.org
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+Description: 
+License: 
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    purrr
