@@ -12,7 +12,7 @@
 build_binder <- function (directory = '.') {
   
   # build dockerfile
-  binder_dockerfile(directory)
+  binder_runtime(directory)
   cat("Dockerfile created.\n")
   
   # build install.R file
