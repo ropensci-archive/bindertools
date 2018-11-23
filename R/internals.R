@@ -1,5 +1,7 @@
-library(purrr)
-
+#' Creates install.R file
+#'
+#' @param directory To build files in. Defaults to current directory. 
+#'
 
 binder_installR <- function (directory = '.') {
   
@@ -37,7 +39,11 @@ binder_installR <- function (directory = '.') {
 
 }
 
-
+#' Find out if package is on CRAN and get version
+#'
+#' @param package_name name of package to test
+#'
+#'
 CRAN_package <- function (package_name) {
   
   pd <- packageDescription(package_name)
@@ -53,6 +59,11 @@ CRAN_package <- function (package_name) {
 
 }
 
+#' Find out if package is on github and get repo and commit SHA
+#'
+#' @param package_name name of package to test
+#'
+#'
 github_package <- function (package_name) {
   
   pd <- packageDescription(package_name)
@@ -67,9 +78,11 @@ github_package <- function (package_name) {
   
 }
 
-
-
-# from milesmcbain/deplearning
+#' Scan text to find packages
+#'
+#' @param doc text of file to scan
+#' @note from milesmcbain/deplearning
+#' 
 find_doc_libs <- function (doc) {
   
   # filter comments
@@ -100,3 +113,24 @@ find_doc_libs <- function (doc) {
   final_matches
 }
 
+#' Create binder dockerfile
+#'
+
+binder_dockerfile <- function () {
+  
+  x <- 'FROM rocker/binder:3.4.3
+    
+## Copies your repo files into the Docker Container
+USER root
+COPY . ${HOME}
+RUN chown -R ${NB_USER} ${HOME}
+    
+## Become normal user again
+USER ${NB_USER}
+    
+## Run an install.R script, if it exists.
+RUN if [ -f install.R ]; then R --quiet -f install.R; fi'
+  
+  writeLines(x, 'Dockerfile')
+  
+}
