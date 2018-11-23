@@ -7,12 +7,12 @@
 #' @return message confirming files created and suggesting next steps
 #' @export
 #'
-#' @examples build_binder()
+#' @examples build_binder(directory = 'toy_example')
 
 build_binder <- function (directory = '.') {
   
   # build dockerfile
-  binder_dockerfile()
+  binder_dockerfile(directory)
   cat("Dockerfile created.\n")
   
   # build install.R file
