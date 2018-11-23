@@ -2,10 +2,22 @@
 % Please edit documentation in R/internals.R
 \name{binder_dockerfile}
 \alias{binder_dockerfile}
-\title{Create binder dockerfile}
+\title{binder_dockerfile}
 \usage{
-binder_dockerfile()
+binder_dockerfile(directory)
+}
+\arguments{
+\item{directory}{the directory to write the binder docker file.}
+}
+\value{
+nothing, writes a file.
 }
 \description{
-Create binder dockerfile
+Create the binder dockerfile
+}
+\details{
+Writes the binder dockerfile to the user's disk current working directory.
+
+Checks the user's local R version and compares it with a list of R versions
+taken from the makefile for the roocker-org/binder repo.
 }
