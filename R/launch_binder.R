@@ -23,4 +23,6 @@ launch_binder <- function (github_username, repo_name, branch_name) {
   
   # launch binder and open URL
   browseURL(url = URL)
+  
+  cat(URL)
 }
