@@ -11,12 +11,19 @@ binder_installR <- function (directory = '.') {
                  recursive = TRUE, 
                  ignore.case = TRUE)
  #  if (length(R_files == 0)) stop('No R files found.')
-  
+
+  ## If we have R markdown files, inject it as a dependency.
+  lib_list <- list() 
+  if (any(grepl(".[Rr][Mm][Dd]", R_files))){
+    lib_list <- list("rmarkdown")
+  }
+
   lib_list <-
-    purrr::map(R_files, readLines) %>%
-    purrr::map(find_doc_libs) %>%
-    unlist() %>%
-    unique()
+    c(lib_list,
+      purrr::map(R_files, readLines) %>%
+      purrr::map(find_doc_libs) %>%
+      unlist() %>%
+      unique())
   
   CRAN_packages <- purrr::map_dfr(lib_list, CRAN_package) %>%
     Filter(Negate(is.null), .) 
