@@ -75,12 +75,12 @@ github_package <- function (package_name) {
   
   pd <- packageDescription(package_name)
   
-  if (is.null(pd$Repository)) {
-    return(paste0(pd$RemoteUsername, '/', pd$GithubRepo, '@', pd$RemoteSha))
+  if (is.null(pd$GithubRepo)) {
+    return(NULL)
   }
   
-  if (!is.null(pd$Repository)) {
-    return(NULL)
+  if (!is.null(pd$GithubRepo)) {
+    return(paste0(pd$RemoteUsername, '/', pd$GithubRepo, '@', pd$RemoteSha))
   }
   
 }
