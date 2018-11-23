@@ -1,5 +1,5 @@
 # bindertools
-
+[![Travis build status](https://travis-ci.org/ropenscilabs/bindertools.svg?branch=master)](https://travis-ci.org/ropenscilabs/bindertools)
 The goal of bindertools is to make creating a reproducible research project easier. 
 
 ## Installation
