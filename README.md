@@ -47,3 +47,6 @@ Access it here:
 
 # More examples
 - https://github.com/cboettig/noise-phenomena
+
+## Team members
+

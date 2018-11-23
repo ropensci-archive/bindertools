@@ -1,2 +1,4 @@
 ^\.travis\.yml$
 ^toy_example$
+^.*\.Rproj$
+^\.Rproj\.user$
