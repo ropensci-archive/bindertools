@@ -113,31 +113,19 @@ find_doc_libs <- function (doc) {
   final_matches
 }
 
-##' Create the binder dockerfile
+##' Create the binder runtime
 ##'
-##' Writes the binder dockerfile to the user's disk current working directory.
+##' Writes the binder R runtime.txt to the user's disk current working directory.
 ##'
-##' @title  binder_dockerfile
+##' @title  binder_runtime
 ##' @param directory the directory to write the binder docker file.
 ##' @return nothing, writes a file.
-binder_dockerfile <- function (directory) {
+binder_runtime <- function (directory) {
 
-  ## Find local R version
-  local_version <- paste(version$major, version$minor, sep = ".")
-  
-  x <- sprintf('FROM rocker/binder:%s
-    
-## Copies your repo files into the Docker Container
-USER root
-COPY . ${HOME}
-RUN chown -R ${NB_USER} ${HOME}
-    
-## Become normal user again
-USER ${NB_USER}
-    
-## Run an install.R script, if it exists.
-RUN if [ -f install.R ]; then R --quiet -f install.R; fi', local_version)
-  
-  writeLines(x, 'Dockerfile')
-  
+  runtime_date <-
+    as.Date(Sys.time(), "UTC", format="%Y-%m-%d")
+
+  x <- paste0("r-",runtime_date)
+
+  writeLines(x, file.path(directory,'runtime.txt'))
 }
