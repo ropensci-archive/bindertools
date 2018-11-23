@@ -21,6 +21,7 @@ ggplot(mtcars, aes(mpg, disp)) + geom_point()
 
 ```{r}
 checkmate::check_character("a")
+devtools::install_github('richfitz/remake')
 ```
 
 
