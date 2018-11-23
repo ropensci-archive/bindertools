@@ -7,7 +7,7 @@
 #' @return message confirming files created and suggesting next steps
 #' @export
 #'
-#' @examples build_binder(directory = 'toy_example')
+#' @examples build_binder()
 
 build_binder <- function (directory = '.') {
   
