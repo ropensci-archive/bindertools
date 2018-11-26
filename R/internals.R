@@ -1,6 +1,7 @@
 #' Creates install.R file
 #'
-#' @param directory To build files in. Defaults to current directory. 
+#' @param directory To build files in. Defaults to current directory.
+#' @importFrom purrr map map_dfr
 #'
 
 binder_installR <- function (directory = '.') {
@@ -88,7 +89,8 @@ github_package <- function (package_name) {
 #' Scan text to find packages
 #'
 #' @param doc text of file to scan
-#' @note from milesmcbain/deplearning
+#' @note from github.com/milesmcbain/deplearning
+#' @importFrom purrr map
 #' 
 find_doc_libs <- function (doc) {
   
