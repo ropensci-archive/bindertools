@@ -3,3 +3,11 @@
 language: R
 sudo: false
 cache: packages
+
+r_packages:
+  - purrr
+  - magrittr
+
+email:
+  on_success: change
+  on_failure: change
