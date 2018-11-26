@@ -1,7 +1,7 @@
 #' Creates install.R file
 #'
 #' @param directory To build files in. Defaults to current directory.
-#' @importFrom purrr map map_dfr
+#' @importFrom purrr map map_dfr walk2
 #' @importFrom utils globalVariables
 #'
 
@@ -19,7 +19,7 @@ binder_installR <- function (directory = utils::globalVariables(c('.'))) {
   if (any(grepl(".[Rr][Mm][Dd]", R_files))){
     lib_list <- list("rmarkdown")
   }
-
+  
   lib_list <-
     c(lib_list,
       purrr::map(R_files, readLines) %>%
@@ -47,8 +47,13 @@ binder_installR <- function (directory = utils::globalVariables(c('.'))) {
                        paste0("\"", github_packages, "\"", collapse = ", "), "))")
   } else { x_github <- NULL }
 
+  defaults <- paste0("install.packages(c('purrr', 'devtools')")
+  
   # add to install.R file  
-  writeLines(paste0(x_CRAN, '\n', x_github), 'install.R')
+  writeLines(paste0(defaults, '\n', 
+                    x_CRAN, '\n',
+                    x_github), 
+             'install.R')
 
 }
 
@@ -59,7 +64,7 @@ binder_installR <- function (directory = utils::globalVariables(c('.'))) {
 #'
 CRAN_package <- function (package_name) {
   
-  pd <- packageDescription(package_name)
+  pd <- utils::packageDescription(package_name)
 
   if (is.null(pd$Repository)) {
     return (NULL)
