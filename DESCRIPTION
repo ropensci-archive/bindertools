@@ -1,5 +1,5 @@
 Package: bindertools
-Title: Create files for binder and then launch binder with mybinder.org
+Title: Create requisite files and launch binder with mybinder.org
 Version: 0.0.0.9000
 Authors@R: c(
     person("Saras", "Windecker", role = c("aut", "cre"), email = "saras.windecker@gmail.com"),
@@ -7,7 +7,17 @@ Authors@R: c(
     person("Steven", "Kambouris", role = "aut"),
     person("Miles", "McBain", role = "aut")
     )
-Description: 
+Description: Computational reproducibility is a critical component of modern open science. Methods 
+    such as docker exist to containerise analyses, ensuring that operating systems and package versions 
+    are recorded and can be recreated in order to rerun analyses. Setting up dockerfiles, however, is 
+    a nontrivial task on top of a growing technical barrier to reproducible research. Binder is a 
+    easy interface to produce a virtual machine within which to rerun analyses without requiring 
+    installation or understanding of underlying containerisation principles. It does however still require 
+    researchers to search through their code to find packages and version of packages used in the project. 
+    This package seeks to make the bridge to using binder for analyses in R even simpler, by setting up
+    the install.R file with all packages and version (both on CRAN and github) in one step. 
+    The binder can also be launched right from R, without needing to manually input repository information
+    into the mybinder.org interface. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
