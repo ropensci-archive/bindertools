@@ -13,5 +13,5 @@ find_doc_libs(doc)
 Scan text to find packages
 }
 \note{
-from milesmcbain/deplearning
+from github.com/milesmcbain/deplearning
 }
