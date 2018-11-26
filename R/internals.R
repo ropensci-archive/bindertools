@@ -2,9 +2,10 @@
 #'
 #' @param directory To build files in. Defaults to current directory.
 #' @importFrom purrr map map_dfr
+#' @importFrom utils globalVariables
 #'
 
-binder_installR <- function (directory = '.') {
+binder_installR <- function (directory = utils::globalVariables(c('.'))) {
   
   R_files <- dir(directory, 
                  full.names = TRUE,
@@ -54,7 +55,7 @@ binder_installR <- function (directory = '.') {
 #' Find out if package is on CRAN and get version
 #'
 #' @param package_name name of package to test
-#'
+#' @importFrom utils packageDescription
 #'
 CRAN_package <- function (package_name) {
   
@@ -78,7 +79,7 @@ CRAN_package <- function (package_name) {
 #'
 github_package <- function (package_name) {
   
-  pd <- packageDescription(package_name)
+  pd <- utils::packageDescription(package_name)
   
   if (is.null(pd$GithubRepo)) {
     return(NULL)

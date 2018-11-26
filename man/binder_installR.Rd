@@ -4,7 +4,7 @@
 \alias{binder_installR}
 \title{Creates install.R file}
 \usage{
-binder_installR(directory = ".")
+binder_installR(directory = utils::globalVariables(c(".")))
 }
 \arguments{
 \item{directory}{To build files in. Defaults to current directory.}

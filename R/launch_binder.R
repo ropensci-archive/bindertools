@@ -7,6 +7,7 @@
 #' @param branch_name Branch name, eg. 'master'
 #'
 #' @return opens URL for binder
+#' @importFrom utils browseURL
 #' @export
 #'
 
@@ -22,7 +23,7 @@ launch_binder <- function (github_username, repo_name, branch_name) {
                 "?urlpath=rstudio")  
   
   # launch binder and open URL
-  browseURL(url = URL)
+  utils::browseURL(url = URL)
   
   cat(URL)
 }
