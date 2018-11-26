@@ -17,7 +17,7 @@ As an alternative to using docker itself, the benefit of binder is that it requi
 - `build_binder()` builds a runtime.txt file and an install.R file that contains code to install all required CRAN and Github packages mentioned in any .R and .Rmd file.
 - `launch_binder()` launches your live repository at mybinder.org in an RStudio session and also returns the html webpage that you can then send as is, or record in a github repo with a README button as follows: 
 
-`[![Binder](http://mybinder.org/badge.svg)](COPY HTML PAGE RETURNED BY launch_binder() HERE)`
+`[![Binder](http://mybinder.org/badge.svg)](COPY HTML LINK RETURNED BY launch_binder() HERE)`
 
 ## Installation
 
@@ -47,8 +47,11 @@ Then in the browser you should see a live RStudio session populated with data sa
 Access our toy project here:
 [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/smwindecker/toy_project/master?urlpath=rstudio)
 
-# More examples
-- https://github.com/cboettig/noise-phenomena
+## More examples
+See also, the [github repo for binder](https://github.com/rocker-org/binder) and a [research compendium example](https://github.com/cboettig/noise-phenomena) using binder.
 
-## Team members
-
+## Team members 
+* `r emo::ji("cat")` [Saras Windecker](https://github.com/smwindecker) `r emo::ji("bird")`  [\@smwindecker](https://twitter.com/smwindecker)
+* `r emo::ji("cat")` [Felix Leung](https://github.com/felixleungsc) `r emo::ji("bird")` [\@felixleungsc](https://twitter.com/felixleungsc)
+* `r emo::ji("cat")` [Steve Kambouris](https://github.com/stevekambouris) `r emo::ji("bird")` [\@steve_kambouris](https://twitter.com/steve_kambouris)
+* `r emo::ji("cat")` [Miles McBain](https://github.com/MilesMcBain) `r emo::ji("bird")` [\@MilesMcBain](https://twitter.com/MilesMcBain)
