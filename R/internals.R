@@ -47,7 +47,7 @@ binder_installR <- function (directory = utils::globalVariables(c('.'))) {
                        paste0("\"", github_packages, "\"", collapse = ", "), "))")
   } else { x_github <- NULL }
 
-  defaults <- paste0("install.packages(c('purrr', 'devtools')")
+  defaults <- paste0("install.packages(c('purrr', 'devtools'))")
   
   # add to install.R file  
   writeLines(paste0(defaults, '\n', 
