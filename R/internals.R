@@ -11,7 +11,7 @@ binder_installR <- function (directory = '.') {
                  pattern = "\\.(rmd|r)$" , 
                  recursive = TRUE, 
                  ignore.case = TRUE)
- #  if (length(R_files == 0)) stop('No R files found.')
+   #  if (length(R_files == 0)) stop('No R files found.')
 
   ## If we have R markdown files, inject it as a dependency.
   lib_list <- list() 
@@ -33,15 +33,19 @@ binder_installR <- function (directory = '.') {
     Filter(Negate(is.null), .) %>%
     as.character()
   
-  x_CRAN <- paste0("purrr::walk2(.x = ", 
-                   deparse(CRAN_packages$package), 
-                   ", .y = ", 
-                   deparse(CRAN_packages$version), 
-                   ", ~devtools::install_version(package = .x, version = .y))")
+  if (length(CRAN_packages) != 0) {
+    x_CRAN <- paste0("purrr::walk2(.x = ", 
+                     deparse(CRAN_packages$package), 
+                     ", .y = ", 
+                     deparse(CRAN_packages$version), 
+                     ", ~devtools::install_version(package = .x, version = .y))")    
+  } else { x_CRAN <- NULL }
   
-  x_github <- paste0("devtools::install_github(c(", 
-                     paste0("\"", github_packages, "\"", collapse = ", "), "))")
-  
+  if (length(github_packages) != 0) {
+    x_github <- paste0("devtools::install_github(c(", 
+                       paste0("\"", github_packages, "\"", collapse = ", "), "))")
+  } else { x_github <- NULL }
+
   # add to install.R file  
   writeLines(paste0(x_CRAN, '\n', x_github), 'install.R')
 
