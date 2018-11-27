@@ -14,12 +14,19 @@ binder_installR <- function (directory = utils::globalVariables(c('.'))) {
                  ignore.case = TRUE)
    #  if (length(R_files == 0)) stop('No R files found.')
 
+  ## If there's a previous install.R file, exclude it.
+  R_files <- R_files[!grepl("install.R",
+                            R_files,
+                            ignore.case = TRUE)] 
+
+
   ## If we have R markdown files, inject it as a dependency.
   lib_list <- list() 
-  if (any(grepl(".[Rr][Mm][Dd]", R_files))){
+  if (any(grepl(".rmd", R_files, ignore.case = TRUE))){
     lib_list <- list("rmarkdown")
   }
-  
+
+
   lib_list <-
     c(lib_list,
       purrr::map(R_files, readLines) %>%
