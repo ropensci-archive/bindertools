@@ -1,6 +1,9 @@
 # bindertools
 [![Project Status: Abandoned – Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
+This repo has been archived. For more information refer to [rOpenSci curation policy](https://devguide.ropensci.org/curationpolicy.html).
+
+For using Binder with R we suggest trying out [holepunch](https://karthik.github.io/holepunch/)
 
 ## Summary
 Computational reproducibility is a critical component of modern open science. Methods such as docker exist to containerise analyses, ensuring that operating systems and package versions are recorded and can be recreated in order to rerun analyses. Setting up dockerfiles, however, is a nontrivial task on top of a growing technical barrier to reproducible research. 
